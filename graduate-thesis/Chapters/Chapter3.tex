@@ -1,0 +1,86 @@
+\chapter{Experiment Design}
+
+    we have conducted two experiments in this paper. First we are curious about whether the economics variables can predict the intra-day data of currency market, also gives a very beginning look of innovations methods applying on our problem. 
+
+    Second we apply our model on Forex carry strategy, which only put a lot of attention on the tomorrow's currency moment, and inherent the experience from our previous experiment to improve our model.
+
+
+\section{Data Description}
+
+For our first experiment we use one-month historical currency data in million-second based, and Wharton Research Data Services Fama-French, Coild-oil in daily based.
+
+%https://pepperstone.com/mt4-forex-trading/mt4-tick-chart-history-data.php
+%http://research.stlouisfed.org/fred2/series/DCOILWTICO
+\begin{enumerate}
+\item{USD/JPY: tick-by-tick data in million-seconds for 2014-11}
+\item{Crude Oil Prices: West Texas Intermediate (WTI) in daily frequency obtain from 1986-2014}
+\item{Fama French \& Liquidity Factors: in daily frequency
+from 2005-01-01 to 2015-03-31}
+\item{The CBOE (Chicago Board Options Exchange) Volatility Index in daily frenquency}
+\item{Current exchange rate Gold (XAU) to US DOLLAR (USD): tick-by-tick data in million-sec frequency for 2014-11}
+\end{enumerate}
+\newpage
+
+
+    
+    Since there are no representative papers support which economic factors are promising for forecasting exchange rate movement, or Forex carry daily return movement. We carry out an exploratory experiment to give a very look into our problem, which economic factors could give us a glance of future.
+    
+% Explain our data sets
+    
+    The only promising forecasting factor is currency forward. Financial theory suggests that under no arbitrage condition, the relation between forward rate and future exchange rate can be written as follow.
+
+    For more deeply concern is that we apply the same concept from the paper[], using risk metric as independent variables to predict the future daily return movement of the portfolio.
+    
+    We also do some simple descriptive statistics on our data set. The result are as follow.
+    
+
+
+\begin{enumerate}
+\item{}
+\end{enumerate}
+
+
+\subsection{Experiment 1}
+    We ask a general question to our data set. The question can be written as follow.
+
+$$ y_{t} = x_{t} + y_{t-1} +y_{t-2} + y_{i-3} +y_{i-4} $$
+
+\subsection{Labeling}
+    In the prototyping phrase we found that labeling plays a crucial part in model prediction. 
+We present two types of labeling, first.
+
+\subsection{Information Criteria}
+
+    For this paper we want to test whether our features are containing crucial information helping us to make prediction.
+We define the Information Criteria for our model as follow:
+
+\begin{defn}
+Information content of factors\\
+Information information content of factors of a model is that how much we can do better than we know nothing.
+\end{defn}
+
+$$
+\mathbf{I}(\mathbf{x_t}) = \frac{ \{\expect{ Error_{out} \mid g(\mathbf{x_{t}}) } - \expect{Error_{out}\mid g(\mathbf{\epsilon_{t}})\}_{+}}}
+{Error_{out} \mid g(\mathbf{x_{t}},y_{t+1})}
+$$
+    The $ \mathbf{x_{t}} $ in our experiment is the economic feature of the market, $ g(x) $ is the approximation function, $ g(x) \in \mathcal{H}$, which we use our algorithm to find out, and $ g(\mathbf{x}, y_{t+1}) $ is the $g(x)$ which we take $y_{t+1}$ as part of current information. For the notation $Error_{out}$ is the $g(\mathbf{x_{t})$  
+    
+    
+    The general idea of the equation, if $\mathbf{I}(x)$ became to 1 then we can claim that factors $\mathbf{x_{t}}$ contain same information quality as the 'answer' $y_{t+1}$, if the $\mathbf{I}(\mathbf{x_{t}})$ is 0 that means $\mathbf{x_{t}}$ has same information as random noise $\mathbf{\eposilon}$. At last, the information criteria can be a sort of proxy of the information content of factors $x_{t}$.
+    
+\subsection{Data Pre-Process}
+
+    We had perform some commonly used data preprocessed techniques.
+    As our data set have the time series structure, we had perform two method to include historical behavior of our data set.
+    
+\subsubsection{Lag-terms}
+    For general time series technique is that putting lag-terms in each sample, in the form of auto-correlation regression($AR(p)$).
+    This method is very expensive when we facing high dimensional data, not only cost us to abandon the degree of freedom but also make our validation and testing procedure very time consuming.
+    On the good side of this method is that it do not need any adjustment of the transformation process, just put the lag-terms in the data.
+    
+
+\subsubsection{Auto-encoder}
+
+
+\section{Experiment 2}
+We found that when
